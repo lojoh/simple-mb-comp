@@ -93,7 +93,7 @@ void SimpleMBCompAudioProcessor::changeProgramName (int index, const juce::Strin
 //==============================================================================
 void SimpleMBCompAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
+    // Use this method as the place to do any  pre-playback
     // initialisation that you need..
 }
 
@@ -166,7 +166,8 @@ bool SimpleMBCompAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* SimpleMBCompAudioProcessor::createEditor()
 {
-    return new SimpleMBCompAudioProcessorEditor (*this);
+    //return new SimpleMBCompAudioProcessorEditor (*this);
+    return new juce::GenericAudioProcessorEditor(*this );
 }
 
 //==============================================================================
