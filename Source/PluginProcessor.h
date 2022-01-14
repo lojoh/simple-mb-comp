@@ -94,12 +94,6 @@ public:
 
 private:
     
-    //juce::dsp::Compressor<float> compressor;
-    //juce::AudioParameterFloat* attack{ nullptr };
-    //juce::AudioParameterFloat* release{ nullptr };
-    //juce::AudioParameterFloat* threshold{ nullptr };
-    //juce::AudioParameterChoice* ratio{ nullptr };
-    //juce::AudioParameterBool* bypassed { nullptr };
     CompressorBand compressor;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleMBCompAudioProcessor)
