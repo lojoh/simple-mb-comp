@@ -3,4 +3,4 @@ Simple multibandcompressor made with the JUCE framework
 
 Videolänk: https://www.youtube.com/watch?v=H1IvfOfBsVQ
 
-2:18:15 in i videon //220114
+2:30:46 in i videon //220114
