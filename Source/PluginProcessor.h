@@ -10,10 +10,10 @@
 /*
  Roadmap
  1) Split audio into 3 channels DONE!
- 2) Create parameters to control splitfrequency
- 3) Make sure splitting doesn't create artifacts
- 4) Create audio parameters for 3 compressor bands
- 5) Add the 2 remaining compressors
+ 2) Create parameters to control splitfrequency DONE!
+ 3) Make sure splitting doesn't create artifacts DONE!
+ 4) Create audio parameters for 3 compressor bands DONE!
+ 5) Add the 2 remaining compressors 
  6) Add mute, solo and bypass for each compressor
  7) Add input and output gain
  8) Code cleanup
