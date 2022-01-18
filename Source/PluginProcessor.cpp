@@ -72,8 +72,6 @@ SimpleMBCompAudioProcessor::SimpleMBCompAudioProcessor()
     AP2.setType(juce::dsp::LinkwitzRileyFilterType::allpass);
     LP2.setType(juce::dsp::LinkwitzRileyFilterType::lowpass);
     HP2.setType(juce::dsp::LinkwitzRileyFilterType::highpass);
-//    invAP1.setType(juce::dsp::LinkwitzRileyFilterType::allpass);
-//    invAP2.setType(juce::dsp::LinkwitzRileyFilterType::allpass);
    
 }
 
@@ -161,10 +159,7 @@ void SimpleMBCompAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
     AP2.prepare(spec);
     LP2.prepare(spec);
     HP2.prepare(spec);
-//    invAP1.prepare(spec);
-//    invAP2.prepare(spec);
-    
-//    invAPBuffer.setSize(spec.numChannels, samplesPerBlock);
+
     
     for ( auto& buffer : filterBuffers )
     {
@@ -223,9 +218,6 @@ void SimpleMBCompAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     {
         compressor.updateCompressorSettings();
     }
-
-//    compressor.process(buffer);
-    
     
     // Fixing to separate buffer for Linkwitz filter
     for ( auto& fb : filterBuffers )
@@ -233,18 +225,14 @@ void SimpleMBCompAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
         fb = buffer;
     }
     
-//    invAPBuffer = buffer;
-    
     auto lowMidCutoffFreq = lowMidCrossover->get();
     LP1.setCutoffFrequency(lowMidCutoffFreq);
     HP1.setCutoffFrequency(lowMidCutoffFreq);
-//    invAP1.setCutoffFrequency(lowMidCutoffFreq);
     
     auto midHighCutoffFreq = midHighCrossover->get();
     AP2.setCutoffFrequency(midHighCutoffFreq);
-    LP1.setCutoffFrequency(midHighCutoffFreq);
-    HP1.setCutoffFrequency(midHighCutoffFreq);
-//    invAP2.setCutoffFrequency(midHighCutoffFreq);
+    LP2.setCutoffFrequency(midHighCutoffFreq);
+    HP2.setCutoffFrequency(midHighCutoffFreq);
     
     auto fb0Block = juce::dsp::AudioBlock<float>(filterBuffers[0]);
     auto fb1Block = juce::dsp::AudioBlock<float>(filterBuffers[1]);

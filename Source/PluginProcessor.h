@@ -177,9 +177,6 @@ private:
             HP1,    LP2,
                     HP2;
     
-//    Filter invAP1, invAP2;
-//    juce::AudioBuffer<float> invAPBuffer;
-    
     juce::AudioParameterFloat* lowMidCrossover { nullptr };
     juce::AudioParameterFloat* midHighCrossover { nullptr };
     
