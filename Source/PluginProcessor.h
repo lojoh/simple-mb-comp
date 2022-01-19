@@ -9,14 +9,20 @@
 #pragma once
 /*
  Roadmap
- 1) Split audio into 3 channels DONE!
- 2) Create parameters to control splitfrequency DONE!
- 3) Make sure splitting doesn't create artifacts DONE!
- 4) Create audio parameters for 3 compressor bands DONE!
- 5) Add the 2 remaining compressors DONE!
- 6) Add mute, solo and bypass for each compressor DONE!
- 7) Add input and output gain DONE!
- 8) Code cleanup
+ 1) Global controls (x-over sliders, gain sliders)
+ 2) Main band control (attack, release etc)
+ 3) Add solo, mute, bypass buttons
+ 4) Band select functionality
+ 5) Band select buttons reflect the solo, mute, bypass state
+ 6) Custom look and feel for sliders and toggle buttons
+ 7) Spectrum analyzer overview
+ 8) Data structures for spectrum analyzer
+ 9) Fifo usage in pluginProcessor::porcessBlock
+ 10) Implementation of the analyzer rendering pre-computed paths
+ 11) Drawing crossover the analyzer plot
+ 12) Drawing gain reduction on top of the analyzer
+ 13) Analyzer bypass
+ 14) Global bypass button
  
  */
 
