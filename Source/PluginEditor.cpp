@@ -9,6 +9,37 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+template<typename T>
+bool truncateKiloValue(T& value)
+{
+    if( value > static_cast<T>(999))
+    {
+        value /= static_cast<T>(1000);
+        return true;
+    }
+    return false;
+}
+
+juce::String getValString(const juce::RangedAudioParameter& param,
+                          bool getLow,
+                          juce::String suffix)
+{
+    juce::String str;
+    
+    auto val = getLow ? param.getNormalisableRange().start :
+                        param.getNormalisableRange().end;
+    
+    bool useK = truncateKiloValue(val);
+    str << val;
+    
+    if( useK )
+        str << "k";
+    
+    str << suffix;
+    
+    return str;
+};
+
 void LookAndFeel::drawRotarySlider(juce::Graphics & g,
                                    int x,
                                    int y,
@@ -202,12 +233,12 @@ juce::String RotarySliderWithLabels::getDisplayString() const
     {
         float val = getValue();
         
-        if( val > 999.f )
-        {
-            val /= 1000.f; //1001 / 1000 = 1.001
-            addK = true;
-        }
-        
+//        if( val > 999.f )
+//        {
+//            val /= 1000.f; //1001 / 1000 = 1.001
+//            addK = true;
+//        }
+        addK = truncateKiloValue(val);
         str = juce::String(val, (addK ? 2 : 0));
     }
     else
@@ -270,6 +301,20 @@ GlobalControls::GlobalControls(juce::AudioProcessorValueTreeState& apvts)
     makeAttachmentHelper(outGainSliderAttachment,
                          Names::Gain_Out,
                          *outGainSlider);
+    
+    addLabelPairs(inGainSlider->labels,
+                  getParamHelper(Names::Gain_In),
+                  "dB");
+    
+    addLabelPairs(lowMidXoverSlider->labels,
+                  getParamHelper(Names::Low_Mid_Crossover_Freq),
+                  "Hz");
+    addLabelPairs(midHighXoverSlider->labels,
+                  getParamHelper(Names::Mid_High_Crossover_Freq),
+                  "Hz");
+    addLabelPairs(outGainSlider->labels,
+                  getParamHelper(Names::Gain_Out),
+                  "dB");
     
     addAndMakeVisible(*inGainSlider);
     addAndMakeVisible(*lowMidXoverSlider);
