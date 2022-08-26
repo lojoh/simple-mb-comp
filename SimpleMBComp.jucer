@@ -3,7 +3,7 @@
 <JUCERPROJECT id="PLgcoF" name="SimpleMBComp" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               cppLanguageStandard="17" pluginFormats="buildAAX,buildAU,buildStandalone,buildVST3"
-              companyName="Lord Music LLC">
+              companyName="LudwigLord">
   <MAINGROUP id="RWqTKq" name="SimpleMBComp">
     <GROUP id="{2FE03A52-690E-7F8F-A9E6-A31E016320AC}" name="Source">
       <FILE id="UuQcNG" name="PluginProcessor.cpp" compile="1" resource="0"
