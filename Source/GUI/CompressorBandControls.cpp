@@ -8,9 +8,9 @@
   ==============================================================================
 */
 
-#include "CompressorBandControls.h"
-#include "Utilities.h"
-#include "Params.h"
+#include "../GUI/CompressorBandControls.h"
+#include "../GUI/Utilities.h"
+#include "../DSP/Params.h"
 
 CompressorBandControls::CompressorBandControls(juce::AudioProcessorValueTreeState& apv) :
     apvts(apv),
